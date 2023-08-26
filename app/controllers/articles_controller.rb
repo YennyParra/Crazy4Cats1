@@ -9,7 +9,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    
     @catcomment = Catcomment.new
+
     @catcomment = @article.catcomments
   end
 

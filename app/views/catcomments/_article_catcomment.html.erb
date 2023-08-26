@@ -1,0 +1,8 @@
+<div class="comentario2">
+    <% @artcle.catcomments.each do |catcomment| %>
+    <p>
+    <div class="nombre"><%= catcomment.catuser.name %></div>
+    <div  class="texto-comentario"><%= catcomment.content %></div>
+    </p>
+    <% end %>
+</div>

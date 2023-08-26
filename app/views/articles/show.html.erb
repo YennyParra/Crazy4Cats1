@@ -2,19 +2,39 @@
 
 <%= render @article %>
 
+
+<div class= "reaction">
+
+<% Article::Kinds.each do |kind| %>
+
+<% if kind == "like" %>
+<i class= "fa-regular fa-thumbs-up"></i>
+<%= Reaction.where(kind: kind,article_id: @article.id).count %>
+
+<%= button_to "#{Article::KindsSpanish[kind]}",
+new_catuser_reaction_path(article_id: @article.id, reaction_type:
+"article", kind: kind), method: :post %>
+<% elsif kind == 'deslike' %>
+<i class= "fa-regular fa-thumbs-down"></i>
+<%= button_to "#{Article::KindsSpanish[kind]}",
+new_catuser_reaction_path(article_id: @article.id, reaction_type:
+"article", kind: kind), method: :post %>
+
+<% end %>
+<% end %>
+</div>
+<% @article.catcomments.each do |catcomment| %>
+
+<%= render catcomment %>
+<%end %>
+
+
+
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Back to articles", articles_path %>
 
   <%= button_to "Destroy this article", @article, method: :delete %>
-
-<% Article::Kinds.each do |kind| %>
-  <%= button_to "#{Article::KindsSpanish[kind]}",
-new_catuser_reaction_path(article_id: @article.id, reaction_type:
-"article", kind: kind), method: :post %>
-<% end %>
-
-<%= render 'catcomments/form' %>
 
 
 </div>

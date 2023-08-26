@@ -1,5 +1,7 @@
 class ReactionsController < ApplicationController
-    def new_user_reaction
+  before_action :authenticate_catuser!
+
+    def new_catuser_reaction
         @catuser = current_catuser
         @type = params[:reaction_type]
         @article = Article.find(params[:article_id]) if params[:article_id]
@@ -28,4 +30,3 @@ class ReactionsController < ApplicationController
                 end
               end
             end
-end
