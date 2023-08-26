@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Catcomments</h1>
+
+<div id="catcomments">
+  <% @catcomments.each do |catcomment| %>
+    <%= render catcomment %>
+    <p>
+      <%= link_to "Show this catcomment", catcomment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New catcomment", new_catcomment_path %>
