@@ -21,7 +21,9 @@ class CatcommentsController < ApplicationController
 
   # POST /catcomments or /catcomments.json
   def create
+    @article = Article.find(params[:catcomment][:article_id])
     @catcomment = Catcomment.new(catcomment_params)
+    
     if catuser_signed_in?
     @catcomment.catuser = current_catuser
     end

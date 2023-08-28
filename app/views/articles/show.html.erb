@@ -25,7 +25,7 @@ new_catuser_reaction_path(article_id: @article.id, reaction_type:
 </div>
 <% @article.catcomments.each do |catcomment| %>
 
-<%= render catcomment %>
+<%= render catcomments/catcomments %>
 <%end %>
 
 
