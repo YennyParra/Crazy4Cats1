@@ -29,7 +29,7 @@ class CatcommentsController < ApplicationController
     end
     respond_to do |format|
       if @catcomment.save
-        format.html { redirect_to catcomment_url(@catcomment), notice: "Catcomment was successfully created." }
+        format.html { redirect_to article_path(@article.id), notice: "Catcomment was successfully created." }
         format.json { render :show, status: :created, location: @catcomment }
       else
         format.html { render :new, status: :unprocessable_entity }
