@@ -19,13 +19,12 @@ new_catuser_reaction_path(article_id: @article.id, reaction_type:
 <%= button_to "#{Article::KindsSpanish[kind]}",
 new_catuser_reaction_path(article_id: @article.id, reaction_type:
 "article", kind: kind), method: :post %>
-
 <% end %>
 <% end %>
 </div>
 <% @article.catcomments.each do |catcomment| %>
 
-<%= render catcomments/catcomments %>
+<%= render 'catcomments/article_catcomment' %>
 <%end %>
 
 
