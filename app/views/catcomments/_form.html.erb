@@ -12,21 +12,12 @@
   <% end %>
 
   <div>
+  <%= form.hidden_field :article_id, value: @article.id %>
+
     <%= form.label :content, style: "display: block" %>
     <%= form.text_field :content %>
-  </div>
-
-  <div>
-    <%= form.label :article_id, style: "display: block" %>
-    <%= form.text_field :article_id %>
-  </div>
-
-  <div>
-    <%= form.label :catuser_id, style: "display: block" %>
-    <%= form.text_field :catuser_id %>
-  </div>
-
-  <div>
+  
+  
     <%= form.submit %>
   </div>
 <% end %>

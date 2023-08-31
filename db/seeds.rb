@@ -35,18 +35,4 @@ until Catcomment.count == 20 do
     supplemental: false), article_id: articles.sample.id, catuser_id: catusers.sample.id)
  end
 
-    r_type = %w[article catcomment]
-  catcomments = Catcomment.all
-  kinds = Article::Kinds
-
-until Reaction.count == 100 do
-  rel_type = r_type.sample
-  if rel_type == "article"
-  Reaction.create(article_id: articles.sample.id, catuser_id:
-  catusers.sample.id, kind: kinds.sample, reaction_type: rel_type)
-  else
-    valid_catcomment = catcomments.where.not(article_id: nil).sample
-  Reaction.create(catcomment_id: catcomments.sample.id, catuser_id:
-  catusers.sample.id, kind: kinds.sample, reaction_type: rel_type)
-  end
- end
+   
